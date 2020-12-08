@@ -128,6 +128,47 @@ class TSPSolver:
         results['pruned'] = None
         return results
     
+    def greedyNeighbor(self, cities, start_time, time_allowance, oldCities, start, end):
+        #Initialization
+        bestPath = []
+        results = {}
+        ncities = len(cities)
+        k = 0
+
+        #Create cost matrix
+        count = 0
+        foundRoute = False
+        while not foundRoute and time.time() - start_time < time_allowance:
+            costMatrix = np.full((ncities,ncities), np.inf)
+            for i in range(len(cities)):
+                for j in range(len(cities)):
+                    costMatrix[i,j] = cities[i].costTo(cities[j])
+            costMatrix[:,0] = np.inf
+            for i in range(count):
+                j = random.randint(1,len(cities)-1)
+                j = costMatrix[0].argmin()
+                costMatrix[0,j] = np.inf
+            sol = [0]
+            i = 0
+            while len(sol) < ncities:
+                j = 0
+                while costMatrix[i,j] == np.inf and j < len(cities):
+                    j += 1
+                if j >= len(cities):
+                    break
+                sol.append(j)
+                costMatrix[i] = np.inf
+                costMatrix[:,j] = np.inf
+                costMatrix[j,i] = np.inf
+                i = j
+            count += 1
+            sol = oldCities[:start] + [cities[i] for i in sol] + oldCities[(end+1):]
+            sol = TSPSolution(sol)
+            if sol.cost < np.inf:
+                foundRoute = True
+            
+        return sol
+
     def reduceCost(self, cost, totCost):
         for i in range(len(cost)):
             minVal = cost[i,:][cost[i,:].argmin()]
@@ -290,7 +331,7 @@ class TSPSolver:
                 break
             T = f_T(T)
             count += 1
-            C_n = self.getNeighbor(C) 
+            C_n = self.getNeighbor(C, start_time, time_allowance) 
             if C_n.cost != np.inf:
                 delta_cost = C_n.cost - C.cost
                 if delta_cost < 0:
@@ -313,28 +354,12 @@ class TSPSolver:
         results['pruned'] = None
         return results
         
-    def getNeighbor(self, C):         
-        iterations = 0
-        foundNeighbor = False
-        while not foundNeighbor:
-            iterations += 1
-            randPlaceToBeginSwap = random.randint(0, len(C.route) - 2)
-            randPlaceToEndSwap = random.randint(randPlaceToBeginSwap + 1, len(C.route) - 1)
-            
-            pathToAlter = copy.copy(C.route)
-            
-            slicePath = pathToAlter[randPlaceToBeginSwap:randPlaceToEndSwap + 1]
-
-            
-            pathToAlter[randPlaceToBeginSwap:randPlaceToEndSwap + 1] = reversed(pathToAlter[randPlaceToBeginSwap:randPlaceToEndSwap + 1])
-            
-            possibleNeighbor = TSPSolution(pathToAlter)
-            
-            
-            if (possibleNeighbor.cost != np.inf):
-                foundNeighbor = True
-                
-        return possibleNeighbor
+    def getNeighbor(self, C, start_time, time_allowance):         
+        cities = C.route
+        start = random.randint(0,len(cities) - 2)
+        end = random.randint(start + 1, len(cities) - 1)
+        C_n = self.greedyNeighbor(cities[start:end + 1], start_time, time_allowance, C.route, start, end)
+        return C_n
 
 
     def getT(self):
