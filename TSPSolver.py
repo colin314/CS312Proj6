@@ -258,15 +258,22 @@ class TSPSolver:
     '''
         
     def fancy( self,time_allowance=60.0 ):
+        # Tuning Parameters
+        Tmax = 500
+        Tmin = 0
+        nPts = 5000
+        Tx = np.linspace(0,np.pi,nPts)
+        def f_T(x):
+            return Tmax*np.cos(x) + Tmax
         results = {}
         cities = self._scenario.getCities()
         ncities = len(cities)
         sol_y = []
         def randCost(dE, T): #FIXME: Tune function
             c_corrected = np.exp(-dE/T)
-            r = rand()
+            r = rand()*2
             if c_corrected > r:
-                print(T)
+                print(T,c_corrected, r)
                 return True
             else:
                 return False
@@ -275,7 +282,8 @@ class TSPSolver:
         start_time = time.time()
         C = self.getInitialSol() 
         T, Tmin, dec_T = self.getT() 
-        while T > Tmin:
+        for T in Tx:
+            T = f_T(T)
             count += 1
             C_n = self.getNeighbor(C,count) 
             if C_n.cost != np.inf:
@@ -284,7 +292,6 @@ class TSPSolver:
                     C = C_n
                 elif randCost(delta_cost,T): 
                     C = C_n
-            T = dec_T(T)
             sol_y.append(C.cost)
         plt.plot(np.arange(0,len(sol_y),1),sol_y)
         plt.savefig('Anneal.png')
@@ -336,7 +343,7 @@ class TSPSolver:
     def getT(self):
         #(T, Tmin, dec_T)
         Tmax = 500
-        Tmin = 10
+        Tmin = 0.1
         def dec_T(T):
             return T - 0.001*T
         return (Tmax, Tmin, dec_T)
