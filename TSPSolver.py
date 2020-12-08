@@ -22,10 +22,11 @@ import copy
 class TSPSolver:
     def __init__( self, gui_view ):
         self._scenario = None
+        self.greedyTime = 0
 
     def setupWithScenario( self, scenario ):
         self._scenario = scenario
-
+    
 
     ''' <summary>
         This is the entry point for the default solver
@@ -136,7 +137,7 @@ class TSPSolver:
         k = 0
 
         #Create cost matrix
-        count = 0
+        count = 1
         foundRoute = False
         while not foundRoute and time.time() - start_time < time_allowance:
             costMatrix = np.full((ncities,ncities), np.inf)
@@ -145,16 +146,13 @@ class TSPSolver:
                     costMatrix[i,j] = cities[i].costTo(cities[j])
             costMatrix[:,0] = np.inf
             for i in range(count):
-                j = random.randint(1,len(cities)-1)
                 j = costMatrix[0].argmin()
                 costMatrix[0,j] = np.inf
             sol = [0]
             i = 0
             while len(sol) < ncities:
-                j = 0
-                while costMatrix[i,j] == np.inf and j < len(cities):
-                    j += 1
-                if j >= len(cities):
+                j = costMatrix[i].argmin()
+                if costMatrix[i,j] == np.inf:
                     break
                 sol.append(j)
                 costMatrix[i] = np.inf
@@ -162,7 +160,10 @@ class TSPSolver:
                 costMatrix[j,i] = np.inf
                 i = j
             count += 1
-            sol = oldCities[:start] + [cities[i] for i in sol] + oldCities[(end+1):]
+            if len(sol) != len(cities):
+                sol = oldCities
+            else:
+                sol = oldCities[:start] + [cities[i] for i in sol] + oldCities[(end+1):]
             sol = TSPSolution(sol)
             if sol.cost < np.inf:
                 foundRoute = True
