@@ -116,8 +116,9 @@ class TSPSolver:
 
         def randCost(dE, T): #FIXME: Tune function
             c_corrected = np.exp(-dE/T)
-            print(c_corrected)
-            return c_corrected < rand() #FIXME: Figure out random range
+            r = rand()
+            print(c_corrected > r)
+            return c_corrected > r #FIXME: Figure out random range
         count = 0
         start_time = time.time()
         C = self.getInitialSol() 
@@ -148,14 +149,14 @@ class TSPSolver:
         foundRoute = False
         maxIt = 100
         i = 0
-        n = 3
-        swappedCities = np.array([])
+        n = 2
         while not foundRoute and i < maxIt:
+            swappedCities = []
             swappedCities = np.append(swappedCities, cities[:n])
             swappedCities = np.append(swappedCities, cities[-n:])
             random.shuffle(swappedCities)
-            cities[:n] = swappedCities[:n]
-            cities[-n:] = swappedCities[n:]
+            cities[:-2*n] = cities[n:-n]
+            cities[-2*n:] = swappedCities
             sol = TSPSolution(cities)
             if sol.cost < np.inf:
                 foundRoute = True
@@ -168,7 +169,7 @@ class TSPSolver:
         Tmax = 500
         Tmin = 10
         def dec_T(T):
-            return T - 10
+            return T - 1
         return (Tmax, Tmin, dec_T)
 
     def getInitialSol(self):
