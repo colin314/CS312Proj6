@@ -261,19 +261,20 @@ class TSPSolver:
         # Tuning Parameters
         Tmax = 500
         Tmin = 0
-        nPts = 5000
-        Tx = np.linspace(0,np.pi,nPts)
+        nPts = 10000
+        Tx = np.linspace(0,Tmax,nPts)
         def f_T(x):
-            return Tmax*np.cos(x) + Tmax
+            return 1/(1+np.exp(x/100))*Tmax*2
         results = {}
         cities = self._scenario.getCities()
         ncities = len(cities)
         sol_y = []
         def randCost(dE, T): #FIXME: Tune function
             c_corrected = np.exp(-dE/T)
-            r = rand()*2
+            p = 1/500**2*(T)**2
+            r = rand()
             if c_corrected > r:
-                print(T,c_corrected, r)
+                #print(T,c_corrected, r,p)
                 return True
             else:
                 return False
