@@ -115,14 +115,16 @@ class TSPSolver:
         ncities = len(cities)
 
         def randCost(dE, T): #FIXME: Tune function
-            c_corrected = np.exp(dE/T)
-            return c_corrected > rand(0,1) #FIXME: Figure out random range
-
+            c_corrected = np.exp(-dE/T)
+            print(c_corrected)
+            return c_corrected < rand() #FIXME: Figure out random range
+        count = 0
         start_time = time.time()
-        C = self.getInitialSol() #FIXME: Get initial solution
-        T, Tmin, dec_T = getT() #FIXME: Get T and T decrement function
+        C = self.getInitialSol() 
+        T, Tmin, dec_T = self.getT() 
         while T > Tmin:
-            C_n = self.getNeighbor(C) #FIXME: Implement
+            count += 1
+            C_n = self.getNeighbor(C) 
             if C_n.cost != np.inf:
                 delta_cost = C_n.cost - C.cost
                 if delta_cost < 0:
@@ -131,18 +133,46 @@ class TSPSolver:
                     C = C_n
             T = dec_T(T)
         end_time = time.time()
-
-        pass
+        results = {}
+        results['cost'] = C.cost
+        results['time'] = end_time - start_time
+        results['count'] = count
+        results['soln'] = C
+        results['max'] = None
+        results['total'] = None
+        results['pruned'] = None
+        return results
         
     def getNeighbor(self,C):
-        
-        pass
+        cities = np.copy(C.route)
+        foundRoute = False
+        maxIt = 100
+        i = 0
+        n = 3
+        swappedCities = np.array([])
+        while not foundRoute and i < maxIt:
+            swappedCities = np.append(swappedCities, cities[:n])
+            swappedCities = np.append(swappedCities, cities[-n:])
+            random.shuffle(swappedCities)
+            cities[:n] = swappedCities[:n]
+            cities[-n:] = swappedCities[n:]
+            sol = TSPSolution(cities)
+            if sol.cost < np.inf:
+                foundRoute = True
+            i += 1
+
+        return sol
 
     def getT(self):
-        pass
+        #(T, Tmin, dec_T)
+        Tmax = 500
+        Tmin = 10
+        def dec_T(T):
+            return T - 10
+        return (Tmax, Tmin, dec_T)
 
     def getInitialSol(self):
-        #returns TSPSolution
-        pass
+        sol = self.defaultRandomTour()
+        return sol['soln']
 
 
