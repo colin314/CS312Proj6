@@ -10,7 +10,7 @@ else:
 
 
 
-
+import matplotlib.pyplot as plt
 import time
 import numpy as np
 from TSPClasses import *
@@ -82,9 +82,64 @@ class TSPSolver:
     '''
 
     def greedy( self,time_allowance=60.0 ):
-        pass
+        #Initialization
+        bestPath = []
+        results = {}
+        cities = self._scenario.getCities()
+        ncities = len(cities)
+        k = 0
+        start_time = time.time()
+        #Create cost matrix
+        count = 0
+        foundRoute = False
+        while not foundRoute and time.time() - start_time < time_allowance:
+            costMatrix = np.full((ncities,ncities), np.inf)
+            for i in range(len(cities)):
+                for j in range(len(cities)):
+                    costMatrix[i,j] = cities[i].costTo(cities[j])
+            costMatrix[:,0] = np.inf
+            for i in range(count):
+                j = costMatrix[0].argmin()
+                costMatrix[0,j] = np.inf
+            sol = [0]
+            i = 0
+            while len(sol) < ncities:
+                j = costMatrix[i].argmin()
+                sol.append(j)
+                costMatrix[i] = np.inf
+                costMatrix[:,j] = np.inf
+                costMatrix[j,i] = np.inf
+                i = j
+            count += 1
+            sol = [cities[i] for i in sol]
+            sol = TSPSolution(sol)
+            if sol.cost < np.inf:
+                foundRoute = True
+            
+        end_time = time.time()
+        results = {}
+        bssf = sol
+        results['cost'] = bssf.cost if foundRoute else math.inf
+        results['time'] = end_time - start_time
+        results['count'] = count
+        results['soln'] = bssf
+        results['max'] = None
+        results['total'] = None
+        results['pruned'] = None
+        return results
     
-    
+    def reduceCost(self, cost, totCost):
+        for i in range(len(cost)):
+            minVal = cost[i,:][cost[i,:].argmin()]
+            if minVal > 0 and minVal != np.inf:
+                cost[i,:] -= minVal
+                totCost += minVal
+        for i in range(len(cost)):
+            minVal = cost[:,i][cost[:,i].argmin()]
+            if minVal > 0 and minVal != np.inf:
+                cost[:,i] -= minVal
+                totCost += minVal
+        return totCost
     
     ''' <summary>
         This is the entry point for the branch-and-bound algorithm that you will implement
@@ -96,7 +151,100 @@ class TSPSolver:
     '''
         
     def branchAndBound( self, time_allowance=60.0 ):
-        pass
+        # Prepare statistic variables
+        childStates = 0
+        pruned = 0
+        bssfUpdates = 0
+
+        # initialize BSSF by using random tour
+        randomSol = self.defaultRandomTour()
+        BSSF = randomSol['cost']
+
+        #Initialization
+        bestPath = []
+        results = {}
+        cities = self._scenario.getCities()
+        ncities = len(cities)
+        k = 0
+        
+        #Create cost matrix
+        costMatrix = np.full((ncities,ncities), np.inf)
+        for i in range(len(cities)):
+            for j in range(len(cities)):
+                costMatrix[i,j] = cities[i].costTo(cities[j])
+
+        #Time Start
+        start_time = time.time()
+        
+        #Reduce initial matrix
+        cost_i = self.reduceCost(costMatrix,0)
+
+
+        # inf_mask = np.ma.masked_equal(costMatrix, np.inf, True)
+        # avgCost = np.ma.average(inf_mask)
+        
+        #Initialize priority queue
+        queue = []
+        heapq.heappush(queue,(ncities-1,cost_i,0,1, k, costMatrix,[0]))
+        childStates += 1
+        k += 1
+        maxQueueLen = len(queue)
+
+        #Begin branch and bound
+        while len(queue) > 0 and time.time() - start_time < time_allowance:
+            maxQueueLen = len(queue) if len(queue) > maxQueueLen else maxQueueLen
+
+            #pop off queue
+            key, cost, i, visitCount, z, costMatrix, path = heapq.heappop(queue)
+
+            #If BSSF is updated states on queue may have become stale
+            if cost > BSSF:
+                pruned += 1
+                continue
+
+            #Loop over all the cities
+            for j in range(ncities):
+                #Skip if city j is unreachable from city i
+                if costMatrix[i,j] != np.inf:
+                    childStates += 1
+                    pathCost = cost + costMatrix[i,j] #Cost to go from i to j
+                    #Prune if cost is > BSSF
+                    if pathCost < BSSF:
+                        #Now reduce the cost matrix set row i, column j, and [j,i] to inf
+                        reducedCostMatrix = np.copy(costMatrix)
+                        reducedCostMatrix[i,:] = np.inf
+                        reducedCostMatrix[:,j] = np.inf
+                        reducedCostMatrix[j,i] = np.inf
+                        reducedCost = self.reduceCost(reducedCostMatrix,pathCost)
+                        if reducedCost < BSSF:
+                            newPath = path.copy()
+                            newPath.append(j)
+                            if visitCount + 1 == ncities:
+                                BSSF = reducedCost
+                                bestPath = newPath
+                                bssfUpdates += 1
+                            else:
+                                heapq.heappush(queue,(ncities-(visitCount + 1),reducedCost, j, visitCount + 1, k, reducedCostMatrix, newPath))
+                                k += 1
+                        else:
+                            pruned += 1
+                    else:
+                        pruned += 1
+                                
+        end_time = time.time()
+        print(bestPath)
+        for i in range(len(bestPath)-1):
+            print(f'{cities[bestPath[i]]._name} to {cities[bestPath[i+1]]._name} = {cities[bestPath[i]].costTo(cities[bestPath[i+1]])}')
+        print(f'{cities[-1]._name} to {cities[0]._name} = {cities[-1].costTo(cities[0])}')
+        path = [cities[i] for i in bestPath]
+        results['cost'] = BSSF
+        results['time'] = end_time - start_time
+        results['count'] = bssfUpdates
+        results['soln'] = TSPSolution(path)
+        results['max'] = maxQueueLen
+        results['total'] = childStates
+        results['pruned'] = pruned
+        return results
 
 
 
@@ -113,19 +261,23 @@ class TSPSolver:
         results = {}
         cities = self._scenario.getCities()
         ncities = len(cities)
-
+        sol_y = []
         def randCost(dE, T): #FIXME: Tune function
             c_corrected = np.exp(-dE/T)
             r = rand()
-            print(c_corrected > r)
-            return c_corrected > r #FIXME: Figure out random range
+            if c_corrected > r:
+                print(T)
+                return True
+            else:
+                return False
+
         count = 0
         start_time = time.time()
         C = self.getInitialSol() 
         T, Tmin, dec_T = self.getT() 
         while T > Tmin:
             count += 1
-            C_n = self.getNeighbor(C) 
+            C_n = self.getNeighbor(C,count) 
             if C_n.cost != np.inf:
                 delta_cost = C_n.cost - C.cost
                 if delta_cost < 0:
@@ -133,6 +285,9 @@ class TSPSolver:
                 elif randCost(delta_cost,T): 
                     C = C_n
             T = dec_T(T)
+            sol_y.append(C.cost)
+        plt.plot(np.arange(0,len(sol_y),1),sol_y)
+        plt.savefig('Anneal.png')
         end_time = time.time()
         results = {}
         results['cost'] = C.cost
@@ -144,23 +299,37 @@ class TSPSolver:
         results['pruned'] = None
         return results
         
-    def getNeighbor(self,C):
+    def getNeighbor(self,C,i):
+        # cities = np.copy(C.route)
+        # foundRoute = False
+        # maxIt = 100
+        # i = 0
+        # n = 2
+        # while not foundRoute and i < maxIt:
+        #     swappedCities = []
+        #     swappedCities = np.append(swappedCities, cities[:n])
+        #     swappedCities = np.append(swappedCities, cities[-n:])
+        #     random.shuffle(swappedCities)
+        #     cities[:-2*n] = cities[n:-n]
+        #     cities[-2*n:] = swappedCities
+        #     sol = TSPSolution(cities)
+        #     if sol.cost < np.inf:
+        #         foundRoute = True
+        #     i += 1
         cities = np.copy(C.route)
         foundRoute = False
-        maxIt = 100
-        i = 0
-        n = 2
-        while not foundRoute and i < maxIt:
-            swappedCities = []
-            swappedCities = np.append(swappedCities, cities[:n])
-            swappedCities = np.append(swappedCities, cities[-n:])
-            random.shuffle(swappedCities)
-            cities[:-2*n] = cities[n:-n]
-            cities[-2*n:] = swappedCities
+        j = 0
+        maxIt = len(cities)
+        while not foundRoute and j < maxIt:
+            i = i % (len(cities) - 1)
+            temp = cities[i]
+            cities[i] = cities[i+1]
+            cities[i+1] = temp
             sol = TSPSolution(cities)
             if sol.cost < np.inf:
                 foundRoute = True
             i += 1
+            j += 1
 
         return sol
 
@@ -169,11 +338,11 @@ class TSPSolver:
         Tmax = 500
         Tmin = 10
         def dec_T(T):
-            return T - 1
+            return T - 0.001*T
         return (Tmax, Tmin, dec_T)
 
     def getInitialSol(self):
-        sol = self.defaultRandomTour()
+        sol = self.greedy()
         return sol['soln']
 
 
