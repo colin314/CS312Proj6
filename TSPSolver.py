@@ -17,7 +17,7 @@ from TSPClasses import *
 import heapq
 import itertools
 from random import random as rand
-
+import copy
 
 class TSPSolver:
     def __init__( self, gui_view ):
@@ -258,16 +258,16 @@ class TSPSolver:
     '''
         
     def fancy( self,time_allowance=60.0 ):
+        cities = self._scenario.getCities()
+        ncities = len(cities)
         # Tuning Parameters
         Tmax = 500
         Tmin = 0
-        nPts = 10000
+        nPts = 1000*ncities
         Tx = np.linspace(0,Tmax,nPts)
         def f_T(x):
             return 1/(1+np.exp(x/100))*Tmax*2
         results = {}
-        cities = self._scenario.getCities()
-        ncities = len(cities)
         sol_y = []
         def randCost(dE, T): #FIXME: Tune function
             c_corrected = np.exp(-dE/T)
@@ -284,15 +284,21 @@ class TSPSolver:
         C = self.getInitialSol() 
         T, Tmin, dec_T = self.getT() 
         for T in Tx:
+            if time.time()-start_time > time_allowance:
+                break
+            if count > 1000:
+                break
             T = f_T(T)
             count += 1
-            C_n = self.getNeighbor(C,count) 
+            C_n = self.getNeighbor(C) 
             if C_n.cost != np.inf:
                 delta_cost = C_n.cost - C.cost
                 if delta_cost < 0:
                     C = C_n
+                    count = 0
                 elif randCost(delta_cost,T): 
                     C = C_n
+                    count = 0
             sol_y.append(C.cost)
         plt.plot(np.arange(0,len(sol_y),1),sol_y)
         plt.savefig('Anneal.png')
@@ -307,39 +313,29 @@ class TSPSolver:
         results['pruned'] = None
         return results
         
-    def getNeighbor(self,C,i):
-        # cities = np.copy(C.route)
-        # foundRoute = False
-        # maxIt = 100
-        # i = 0
-        # n = 2
-        # while not foundRoute and i < maxIt:
-        #     swappedCities = []
-        #     swappedCities = np.append(swappedCities, cities[:n])
-        #     swappedCities = np.append(swappedCities, cities[-n:])
-        #     random.shuffle(swappedCities)
-        #     cities[:-2*n] = cities[n:-n]
-        #     cities[-2*n:] = swappedCities
-        #     sol = TSPSolution(cities)
-        #     if sol.cost < np.inf:
-        #         foundRoute = True
-        #     i += 1
-        cities = np.copy(C.route)
-        foundRoute = False
-        j = 0
-        maxIt = len(cities)
-        while not foundRoute and j < maxIt:
-            i = i % (len(cities) - 1)
-            temp = cities[i]
-            cities[i] = cities[i+1]
-            cities[i+1] = temp
-            sol = TSPSolution(cities)
-            if sol.cost < np.inf:
-                foundRoute = True
-            i += 1
-            j += 1
+    def getNeighbor(self, C):         
+        iterations = 0
+        foundNeighbor = False
+        while not foundNeighbor:
+            iterations += 1
+            randPlaceToBeginSwap = random.randint(0, len(C.route) - 2)
+            randPlaceToEndSwap = random.randint(randPlaceToBeginSwap + 1, len(C.route) - 1)
+            
+            pathToAlter = copy.copy(C.route)
+            
+            slicePath = pathToAlter[randPlaceToBeginSwap:randPlaceToEndSwap + 1]
 
-        return sol
+            
+            pathToAlter[randPlaceToBeginSwap:randPlaceToEndSwap + 1] = reversed(pathToAlter[randPlaceToBeginSwap:randPlaceToEndSwap + 1])
+            
+            possibleNeighbor = TSPSolution(pathToAlter)
+            
+            
+            if (possibleNeighbor.cost != np.inf):
+                foundNeighbor = True
+                
+        return possibleNeighbor
+
 
     def getT(self):
         #(T, Tmin, dec_T)
