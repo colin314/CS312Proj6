@@ -1,6 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-
+import random
 # x0 = 500
 # xmin = 0.01
 # def dec(x):
@@ -28,8 +28,26 @@ import matplotlib.pyplot as plt
 # plt.plot(Tx,f_T(Tx))
 # plt.show()
 
-x = np.linspace(0,500,1000)
-y = 1/(1+np.exp(x/1000))*1000
-plt.plot(x,y)
+# data = []
+# imax = 500
+# imin = 100
+# width = 10
+# ri = random.randint(0,500)
+# for i in range(200):
+#     start = max(imin,ri-width)
+#     end = min(imax,ri+width)
+#     ri = random.randint(start,end)
+#     data.append(ri)
+# data = np.array(data)
+# np.savetxt('data.txt',data,delimiter=',')
 
+data = np.genfromtxt('data.txt',delimiter=',')
+sortedData = data.argsort()[-5:][::-1]
+print(sortedData)
+x = np.arange(0,200,1)
+plt.plot(x,data)
+plt.plot(sortedData[0])
+for i in sortedData:
+    plt.plot([i,i],[200,data[i]])
+plt.ylim([200,350])
 plt.show()

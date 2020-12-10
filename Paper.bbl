@@ -1,0 +1,76 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.1 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nty/global//global/global}
+    \entry{tspWeb}{online}{}
+      \name{author}{1}{}{%
+        {{hash=103180bf356fbb507c0650376f44b65a}{%
+           family={Schneider},
+           familyi={S\bibinitperiod},
+           given={Todd\bibnamedelima W.},
+           giveni={T\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
+      }
+      \strng{namehash}{103180bf356fbb507c0650376f44b65a}
+      \strng{fullhash}{103180bf356fbb507c0650376f44b65a}
+      \strng{bibnamehash}{103180bf356fbb507c0650376f44b65a}
+      \strng{authorbibnamehash}{103180bf356fbb507c0650376f44b65a}
+      \strng{authornamehash}{103180bf356fbb507c0650376f44b65a}
+      \strng{authorfullhash}{103180bf356fbb507c0650376f44b65a}
+      \field{sortinit}{S}
+      \field{sortinithash}{c319cff79d99c853d775f88277d4e45f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{The Traveling Salesman with Simulated Annealing, R, and Shiny}
+      \verb{urlraw}
+      \verb https://toddwschneider.com/posts/traveling-salesman-with-simulated-annealing-r-and-shiny/
+      \endverb
+      \verb{url}
+      \verb https://toddwschneider.com/posts/traveling-salesman-with-simulated-annealing-r-and-shiny/
+      \endverb
+      \keyw{annealing,tsp}
+    \endentry
+    \entry{wikiAnn}{online}{}
+      \name{author}{1}{}{%
+        {{hash=9c677286866aad38f8e9b660f5411814}{%
+           family={Wikipedia},
+           familyi={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{fullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{bibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
+      \field{sortinit}{W}
+      \field{sortinithash}{1af34bd8c148ffb32de1494636b49713}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Simulated Annealing}
+      \verb{urlraw}
+      \verb https://en.wikipedia.org/wiki/Simulated_annealing
+      \endverb
+      \verb{url}
+      \verb https://en.wikipedia.org/wiki/Simulated_annealing
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

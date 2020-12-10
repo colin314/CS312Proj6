@@ -9,7 +9,7 @@ else:
     raise Exception('Unsupported Version of PyQt: {}'.format(PYQT_VER))
 
 
-
+from console_progressbar import ProgressBar
 import matplotlib.pyplot as plt
 import time
 import numpy as np
@@ -166,8 +166,8 @@ class TSPSolver:
                 sol = oldCities[:start] + [cities[i] for i in sol] + oldCities[(end+1):]
             sol = TSPSolution(sol)
             if sol.cost < np.inf:
+                self.greedyCount += count
                 foundRoute = True
-            
         return sol
 
     def reduceCost(self, cost, totCost):
@@ -199,11 +199,11 @@ class TSPSolver:
         bssfUpdates = 0
 
         # initialize BSSF by using random tour
-        randomSol = self.defaultRandomTour()
+        randomSol = self.greedy()
         BSSF = randomSol['cost']
 
         #Initialization
-        bestPath = []
+        bestPath = [i._index for i in randomSol['soln'].route]
         results = {}
         cities = self._scenario.getCities()
         ncities = len(cities)
@@ -274,10 +274,10 @@ class TSPSolver:
                         pruned += 1
                                 
         end_time = time.time()
-        print(bestPath)
-        for i in range(len(bestPath)-1):
-            print(f'{cities[bestPath[i]]._name} to {cities[bestPath[i+1]]._name} = {cities[bestPath[i]].costTo(cities[bestPath[i+1]])}')
-        print(f'{cities[-1]._name} to {cities[0]._name} = {cities[-1].costTo(cities[0])}')
+        # print(bestPath)
+        # for i in range(len(bestPath)-1):
+        #     print(f'{cities[bestPath[i]]._name} to {cities[bestPath[i+1]]._name} = {cities[bestPath[i]].costTo(cities[bestPath[i+1]])}')
+        # print(f'{cities[-1]._name} to {cities[0]._name} = {cities[-1].costTo(cities[0])}')
         path = [cities[i] for i in bestPath]
         results['cost'] = BSSF
         results['time'] = end_time - start_time
@@ -299,33 +299,30 @@ class TSPSolver:
         algorithm</returns> 
     '''
         
-    def fancy( self,time_allowance=60.0 ):
+    def fancy( self,time_allowance=60.0,iterPerCity = 100,sVal=100,f_Tmax=lambda n,i: 5*n):
+        self.greedyCount = 0
+        self.greedySkipCount = 0
         cities = self._scenario.getCities()
         ncities = len(cities)
         # Tuning Parameters
-        Tmax = 500
+        nPts = iterPerCity*ncities
+        Tmax = f_Tmax(ncities,nPts)
         Tmin = 0
-        nPts = 1000*ncities
+
+        pb = ProgressBar(total=Tmax,prefix='Here', suffix = 'Now',decimals=3,length=50,fill='X',zfill='-')
+
         Tx = np.linspace(0,Tmax,nPts)
         def f_T(x):
-            return 1/(1+np.exp(x/100))*Tmax*2
+            return 1/(1+np.exp(x/sVal))*Tmax*2
         results = {}
         sol_y = []
-        def randCost(dE, T): #FIXME: Tune function
-            c_corrected = np.exp(-dE/T)
-            p = 1/500**2*(T)**2
-            r = rand()
-            if c_corrected > r:
-                #print(T,c_corrected, r,p)
-                return True
-            else:
-                return False
-
         count = 0
         start_time = time.time()
-        C = self.getInitialSol() 
-        T, Tmin, dec_T = self.getT() 
+        C = self.getInitialSol()
+        C_best = C
         for T in Tx:
+            if int(T) % 10 == 0:
+                pb.print_progress_bar(int(T))
             if time.time()-start_time > time_allowance:
                 break
             if count > 1000:
@@ -335,24 +332,28 @@ class TSPSolver:
             C_n = self.getNeighbor(C, start_time, time_allowance) 
             if C_n.cost != np.inf:
                 delta_cost = C_n.cost - C.cost
+                if C_n.cost < C_best.cost:
+                    C_best = C_n
                 if delta_cost < 0:
                     C = C_n
                     count = 0
-                elif randCost(delta_cost,T): 
+                elif np.exp(-delta_cost/T) > rand(): 
                     C = C_n
                     count = 0
+            
             sol_y.append(C.cost)
         plt.plot(np.arange(0,len(sol_y),1),sol_y)
         plt.savefig('Anneal.png')
         end_time = time.time()
         results = {}
-        results['cost'] = C.cost
+        results['cost'] = C_best.cost
         results['time'] = end_time - start_time
         results['count'] = count
-        results['soln'] = C
+        results['soln'] = C_best
         results['max'] = None
         results['total'] = None
         results['pruned'] = None
+        results['sol_y'] = sol_y
         return results
         
     def getNeighbor(self, C, start_time, time_allowance):         
@@ -361,15 +362,6 @@ class TSPSolver:
         end = random.randint(start + 1, len(cities) - 1)
         C_n = self.greedyNeighbor(cities[start:end + 1], start_time, time_allowance, C.route, start, end)
         return C_n
-
-
-    def getT(self):
-        #(T, Tmin, dec_T)
-        Tmax = 500
-        Tmin = 0.1
-        def dec_T(T):
-            return T - 0.001*T
-        return (Tmax, Tmin, dec_T)
 
     def getInitialSol(self):
         sol = self.greedy()

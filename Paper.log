@@ -1,70 +1,812 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7380 64-bit) (preloaded format=pdflatex 2020.4.3)  7 DEC 2020 14:55
+This is XeTeX, Version 3.14159265-2.6-0.999992 (MiKTeX 2.9.7380 64-bit) (preloaded format=xelatex 2020.9.4)  10 DEC 2020 11:59
 entering extended mode
-**"c:/Users/canderson/OneDrive - BYU/Documents/Class Things/Algorithm/Project_6/Paper.tex"
-("c:/Users/canderson/OneDrive - BYU/Documents/Class Things/Algorithm/Project_6/Paper.tex"
+**"c:/Users/canderson/OneDrive - BYU/Documents/Class Things/Algorithm/Project_6
+/Paper.tex"
+
+("c:/Users/canderson/OneDrive - BYU/Documents/Class Things/Algorithm/Project_6/
+Paper.tex"
 LaTeX2e <2020-02-02> patch level 5
-L3 programming layer <2020-03-06> ("C:\Users\canderson\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\article.cls"
+L3 programming layer <2020-03-06>
+("C:\Users\canderson\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\article.c
+ls"
 Document Class: article 2019/12/20 v1.4l Standard LaTeX document class
-("C:\Users\canderson\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\size10.clo"
+
+("C:\Users\canderson\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\size10.cl
+o"
 File: size10.clo 2019/12/20 v1.4l Standard LaTeX file (size option)
 )
-\c@part=\count167
-\c@section=\count168
-\c@subsection=\count169
-\c@subsubsection=\count170
-\c@paragraph=\count171
-\c@subparagraph=\count172
-\c@figure=\count173
-\c@table=\count174
+\c@part=\count163
+\c@section=\count164
+\c@subsection=\count165
+\c@subsubsection=\count166
+\c@paragraph=\count167
+\c@subparagraph=\count168
+\c@figure=\count169
+\c@table=\count170
 \abovecaptionskip=\skip47
 \belowcaptionskip=\skip48
 \bibindent=\dimen134
-) ("C:\Users\canderson\AppData\Local\Programs\MiKTeX 2.9\tex/latex/l3backend\l3backend-pdfmode.def"
-File: l3backend-pdfmode.def 2020-03-12 L3 backend support: PDF mode
-\l__kernel_color_stack_int=\count175
-\l__pdf_internal_box=\box45
-) ("c:/Users\canderson\OneDrive - BYU\Documents\Class Things\Algorithm\Project_6\Paper.aux")
+)
+("C:\Users\canderson\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\amsmat
+h.sty"
+Package: amsmath 2020/01/20 v2.17e AMS math features
+\@mathmargin=\skip49
+
+For additional information on amsmath, use the `?' option.
+
+("C:\Users\canderson\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\amstex
+t.sty"
+Package: amstext 2000/06/29 v2.01 AMS text
+
+("C:\Users\canderson\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\amsgen
+.sty"
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks15
+\ex@=\dimen135
+))
+("C:\Users\canderson\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\amsbsy
+.sty"
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen136
+)
+("C:\Users\canderson\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\amsopn
+.sty"
+Package: amsopn 2016/03/08 v2.02 operator names
+)
+\inf@bad=\count171
+LaTeX Info: Redefining \frac on input line 227.
+\uproot@=\count172
+\leftroot@=\count173
+LaTeX Info: Redefining \overline on input line 389.
+\classnum@=\count174
+\DOTSCASE@=\count175
+LaTeX Info: Redefining \ldots on input line 486.
+LaTeX Info: Redefining \dots on input line 489.
+LaTeX Info: Redefining \cdots on input line 610.
+\Mathstrutbox@=\box45
+\strutbox@=\box46
+\big@size=\dimen137
+LaTeX Font Info:    Redeclaring font encoding OML on input line 733.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 734.
+\macc@depth=\count176
+\c@MaxMatrixCols=\count177
+\dotsspace@=\muskip16
+\c@parentequation=\count178
+\dspbrk@lvl=\count179
+\tag@help=\toks16
+\row@=\count180
+\column@=\count181
+\maxfields@=\count182
+\andhelp@=\toks17
+\eqnshift@=\dimen138
+\alignsep@=\dimen139
+\tagshift@=\dimen140
+\tagwidth@=\dimen141
+\totwidth@=\dimen142
+\lineht@=\dimen143
+\@envbody=\toks18
+\multlinegap=\skip50
+\multlinetaggap=\skip51
+\mathdisplay@stack=\toks19
+LaTeX Info: Redefining \[ on input line 2859.
+LaTeX Info: Redefining \] on input line 2860.
+)
+("C:\Users\canderson\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\graph
+icx.sty"
+Package: graphicx 2019/11/30 v1.2a Enhanced LaTeX Graphics (DPC,SPQR)
+
+("C:\Users\canderson\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\keyva
+l.sty"
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks20
+)
+("C:\Users\canderson\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\graph
+ics.sty"
+Package: graphics 2019/11/30 v1.4a Standard LaTeX Graphics (DPC,SPQR)
+
+("C:\Users\canderson\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\trig.
+sty"
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+("C:\Users\canderson\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics-cfg\g
+raphics.cfg"
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: xetex.def on input line 105.
+
+("C:\Users\canderson\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics-def\x
+etex.def"
+File: xetex.def 2017/06/24 v5.0h Graphics/color driver for xetex
+))
+\Gin@req@height=\dimen144
+\Gin@req@width=\dimen145
+)
+("C:\Users\canderson\AppData\Local\Programs\MiKTeX 2.9\tex/latex/sectsty\sectst
+y.sty"
+Package: sectsty 2002/02/25 v2.0.2 Commands to change all sectional heading sty
+les
+
+
+LaTeX Warning: Command \underbar  has changed.
+               Check if current package is valid.
+
+
+LaTeX Warning: Command \underline  has changed.
+               Check if current package is valid.
+
+)
+("C:\Users\canderson\AppData\Local\Programs\MiKTeX 2.9\tex/latex/geometry\geome
+try.sty"
+Package: geometry 2020/01/02 v5.9 Page Geometry
+
+("C:\Users\canderson\AppData\Local\Programs\MiKTeX 2.9\tex/generic/iftex\ifvtex
+.sty"
+Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
+
+("C:\Users\canderson\AppData\Local\Programs\MiKTeX 2.9\tex/generic/iftex\iftex.
+sty"
+Package: iftex 2020/03/06 v1.0d TeX engine tests
+))
+\Gm@cnth=\count183
+\Gm@cntv=\count184
+\c@Gm@tempcnt=\count185
+\Gm@bindingoffset=\dimen146
+\Gm@wd@mp=\dimen147
+\Gm@odd@mp=\dimen148
+\Gm@even@mp=\dimen149
+\Gm@layoutwidth=\dimen150
+\Gm@layoutheight=\dimen151
+\Gm@layouthoffset=\dimen152
+\Gm@layoutvoffset=\dimen153
+\Gm@dimlist=\toks21
+
+("C:\Users\canderson\AppData\Local\Programs\MiKTeX 2.9\tex/xelatex/xetexconfig\
+geometry.cfg"))
+("C:\Users\canderson\AppData\Local\Programs\MiKTeX 2.9\tex/latex/tools\multicol
+.sty"
+Package: multicol 2019/12/09 v1.8y multicolumn formatting (FMi)
+\c@tracingmulticols=\count186
+\mult@box=\box47
+\multicol@leftmargin=\dimen154
+\c@unbalance=\count187
+\c@collectmore=\count188
+\doublecol@number=\count189
+\multicoltolerance=\count190
+\multicolpretolerance=\count191
+\full@width=\dimen155
+\page@free=\dimen156
+\premulticols=\dimen157
+\postmulticols=\dimen158
+\multicolsep=\skip52
+\multicolbaselineskip=\skip53
+\partial@page=\box48
+\last@line=\box49
+\maxbalancingoverflow=\dimen159
+\mult@rightbox=\box50
+\mult@grightbox=\box51
+\mult@gfirstbox=\box52
+\mult@firstbox=\box53
+\@tempa=\box54
+\@tempa=\box55
+\@tempa=\box56
+\@tempa=\box57
+\@tempa=\box58
+\@tempa=\box59
+\@tempa=\box60
+\@tempa=\box61
+\@tempa=\box62
+\@tempa=\box63
+\@tempa=\box64
+\@tempa=\box65
+\@tempa=\box66
+\@tempa=\box67
+\@tempa=\box68
+\@tempa=\box69
+\@tempa=\box70
+\@tempa=\box71
+\@tempa=\box72
+\@tempa=\box73
+\@tempa=\box74
+\@tempa=\box75
+\@tempa=\box76
+\@tempa=\box77
+\@tempa=\box78
+\@tempa=\box79
+\@tempa=\box80
+\@tempa=\box81
+\@tempa=\box82
+\@tempa=\box83
+\@tempa=\box84
+\@tempa=\box85
+\@tempa=\box86
+\@tempa=\box87
+\@tempa=\box88
+\@tempa=\box89
+\@tempa=\box90
+\c@minrows=\count192
+\c@columnbadness=\count193
+\c@finalcolumnbadness=\count194
+\last@try=\dimen160
+\multicolovershoot=\dimen161
+\multicolundershoot=\dimen162
+\mult@nat@firstbox=\box91
+\colbreak@box=\box92
+\mc@col@check@num=\count195
+)
+("C:\Users\canderson\AppData\Local\Programs\MiKTeX 2.9\tex/latex/tools\array.st
+y"
+Package: array 2019/08/31 v2.4l Tabular extension package (FMi)
+\col@sep=\dimen163
+\ar@mcellbox=\box93
+\extrarowheight=\dimen164
+\NC@list=\toks22
+\extratabsurround=\skip54
+\backup@length=\skip55
+\ar@cellbox=\box94
+)
+("C:\Users\canderson\AppData\Local\Programs\MiKTeX 2.9\tex/latex/csvsimple\csvs
+imple.sty"
+Package: csvsimple 2019/04/09 version 1.21 LaTeX CSV file processing
+
+("C:\Users\canderson\AppData\Local\Programs\MiKTeX 2.9\tex/latex/pgf/utilities\
+pgfrcs.sty"
+("C:\Users\canderson\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/utilitie
+s\pgfutil-common.tex"
+\pgfutil@everybye=\toks23
+\pgfutil@tempdima=\dimen165
+\pgfutil@tempdimb=\dimen166
+
+("C:\Users\canderson\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/utilitie
+s\pgfutil-common-lists.tex"))
+("C:\Users\canderson\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/utilitie
+s\pgfutil-latex.def"
+\pgfutil@abb=\box95
+
+("C:\Users\canderson\AppData\Local\Programs\MiKTeX 2.9\tex/latex/ms\everyshi.st
+y"
+Package: everyshi 2001/05/15 v3.00 EveryShipout Package (MS)
+))
+("C:\Users\canderson\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/utilitie
+s\pgfrcs.code.tex"
+("C:\Users\canderson\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf\pgf.revi
+sion.tex")
+Package: pgfrcs 2020/01/08 v3.1.5b (3.1.5b)
+))
+("C:\Users\canderson\AppData\Local\Programs\MiKTeX 2.9\tex/latex/pgf/utilities\
+pgfkeys.sty"
+("C:\Users\canderson\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/utilitie
+s\pgfkeys.code.tex"
+\pgfkeys@pathtoks=\toks24
+\pgfkeys@temptoks=\toks25
+
+("C:\Users\canderson\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/utilitie
+s\pgfkeysfiltered.code.tex"
+\pgfkeys@tmptoks=\toks26
+)))
+("C:\Users\canderson\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\ifthen.st
+y"
+Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
+)
+("C:\Users\canderson\AppData\Local\Programs\MiKTeX 2.9\tex/latex/etoolbox\etool
+box.sty"
+Package: etoolbox 2019/09/21 v2.5h e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count196
+)
+("C:\Users\canderson\AppData\Local\Programs\MiKTeX 2.9\tex/latex/tools\shellesc
+.sty"
+Package: shellesc 2019/11/08 v1.0c unified shell escape interface for LaTeX
+Package shellesc Info: Restricted shell escape enabled on input line 77.
+)
+\csv@file=\read2
+\c@csvinputline=\count197
+\c@csvrow=\count198
+\c@csvcol=\count199
+\csv@out=\write3
+)
+("C:\Users\canderson\AppData\Local\Programs\MiKTeX 2.9\tex/latex/booktabs\bookt
+abs.sty"
+Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
+\heavyrulewidth=\dimen167
+\lightrulewidth=\dimen168
+\cmidrulewidth=\dimen169
+\belowrulesep=\dimen170
+\belowbottomsep=\dimen171
+\aboverulesep=\dimen172
+\abovetopsep=\dimen173
+\cmidrulesep=\dimen174
+\cmidrulekern=\dimen175
+\defaultaddspace=\dimen176
+\@cmidla=\count266
+\@cmidlb=\count267
+\@aboverulesep=\dimen177
+\@belowrulesep=\dimen178
+\@thisruleclass=\count268
+\@lastruleclass=\count269
+\@thisrulewidth=\dimen179
+)
+("C:\Users\canderson\AppData\Local\Programs\MiKTeX 2.9\tex/latex/multirow\multi
+row.sty"
+Package: multirow 2019/05/31 v2.5 Span multiple rows of a table
+\multirow@colwidth=\skip56
+\multirow@cntb=\count270
+\multirow@dima=\skip57
+\bigstrutjot=\dimen180
+)
+("C:\Users\canderson\AppData\Local\Programs\MiKTeX 2.9\tex/latex/float\float.st
+y"
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count271
+\float@exts=\toks27
+\float@box=\box96
+\@float@everytoks=\toks28
+\@floatcapt=\box97
+)
+("C:\Users\canderson\AppData\Local\Programs\MiKTeX 2.9\tex/latex/caption\captio
+n.sty"
+Package: caption 2020/05/30 v3.4k Customizing captions (AR)
+
+("C:\Users\canderson\AppData\Local\Programs\MiKTeX 2.9\tex/latex/caption\captio
+n3.sty"
+Package: caption3 2020/07/20 v1.12b caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 61.
+\captionmargin=\dimen181
+\captionmargin@=\dimen182
+\captionwidth=\dimen183
+\caption@tempdima=\dimen184
+\caption@indent=\dimen185
+\caption@parindent=\dimen186
+\caption@hangindent=\dimen187
+Package caption Info: Standard document class detected.
+)
+\c@caption@flags=\count272
+\c@continuedfloat=\count273
+Package caption Info: float package is loaded.
+)
+("C:\Users\canderson\AppData\Local\Programs\MiKTeX 2.9\tex/latex/algorithms\alg
+orithm.sty"
+Invalid UTF-8 byte or sequence at line 11 replaced by U+FFFD.
+Package: algorithm 2009/08/24 v0.1 Document Style `algorithm' - floating enviro
+nment
+\@float@every@algorithm=\toks29
+\c@algorithm=\count274
+)
+("C:\Users\canderson\AppData\Local\Programs\MiKTeX 2.9\tex/latex/algorithms\alg
+orithmic.sty"
+Invalid UTF-8 byte or sequence at line 11 replaced by U+FFFD.
+Package: algorithmic 2009/08/24 v0.1 Document Style `algorithmic'
+\c@ALC@unique=\count275
+\c@ALC@line=\count276
+\c@ALC@rem=\count277
+\c@ALC@depth=\count278
+\ALC@tlm=\skip58
+\algorithmicindent=\skip59
+)
+("C:\Users\canderson\AppData\Local\Programs\MiKTeX 2.9\tex/latex/biblatex\bibla
+tex.sty"
+Package: biblatex 2019/12/01 v3.14 programmable bibliographies (PK/MW)
+
+("C:\Users\canderson\AppData\Local\Programs\MiKTeX 2.9\tex/latex/pdftexcmds\pdf
+texcmds.sty"
+Package: pdftexcmds 2019/11/24 v0.31 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+("C:\Users\canderson\AppData\Local\Programs\MiKTeX 2.9\tex/generic/infwarerr\in
+fwarerr.sty"
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+)
+("C:\Users\canderson\AppData\Local\Programs\MiKTeX 2.9\tex/generic/ltxcmds\ltxc
+mds.sty"
+Package: ltxcmds 2019/12/15 v1.24 LaTeX kernel commands for general use (HO)
+)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode not found.
+)
+("C:\Users\canderson\AppData\Local\Programs\MiKTeX 2.9\tex/latex/kvoptions\kvop
+tions.sty"
+Package: kvoptions 2019/11/29 v3.13 Key value format for package options (HO)
+
+("C:\Users\canderson\AppData\Local\Programs\MiKTeX 2.9\tex/generic/kvsetkeys\kv
+setkeys.sty"
+Package: kvsetkeys 2019/12/15 v1.18 Key value parser (HO)
+))
+("C:\Users\canderson\AppData\Local\Programs\MiKTeX 2.9\tex/latex/logreq\logreq.
+sty"
+Package: logreq 2010/08/04 v1.0 xml request logger
+\lrq@indent=\count279
+
+("C:\Users\canderson\AppData\Local\Programs\MiKTeX 2.9\tex/latex/logreq\logreq.
+def"
+File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
+))
+("C:\Users\canderson\AppData\Local\Programs\MiKTeX 2.9\tex/latex/url\url.sty"
+\Urlmuskip=\muskip17
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+\c@tabx@nest=\count280
+\c@listtotal=\count281
+\c@listcount=\count282
+\c@liststart=\count283
+\c@liststop=\count284
+\c@citecount=\count285
+\c@citetotal=\count286
+\c@multicitecount=\count287
+\c@multicitetotal=\count288
+\c@instcount=\count289
+\c@maxnames=\count290
+\c@minnames=\count291
+\c@maxitems=\count292
+\c@minitems=\count293
+\c@citecounter=\count294
+\c@maxcitecounter=\count295
+\c@savedcitecounter=\count296
+\c@uniquelist=\count297
+\c@uniquename=\count298
+\c@refsection=\count299
+\c@refsegment=\count300
+\c@maxextratitle=\count301
+\c@maxextratitleyear=\count302
+\c@maxextraname=\count303
+\c@maxextradate=\count304
+\c@maxextraalpha=\count305
+\c@abbrvpenalty=\count306
+\c@highnamepenalty=\count307
+\c@lownamepenalty=\count308
+\c@maxparens=\count309
+\c@parenlevel=\count310
+\blx@tempcnta=\count311
+\blx@tempcntb=\count312
+\blx@tempcntc=\count313
+\blx@maxsection=\count314
+\blx@maxsegment@0=\count315
+\blx@notetype=\count316
+\blx@parenlevel@text=\count317
+\blx@parenlevel@foot=\count318
+\blx@sectionciteorder@0=\count319
+\blx@entrysetcounter=\count320
+\labelnumberwidth=\skip60
+\labelalphawidth=\skip61
+\biblabelsep=\skip62
+\bibitemsep=\skip63
+\bibnamesep=\skip64
+\bibinitsep=\skip65
+\bibparsep=\skip66
+\bibhang=\skip67
+\blx@bcfin=\read3
+\blx@bcfout=\write4
+\blx@langwohyphens=\language78
+\c@mincomprange=\count321
+\c@maxcomprange=\count322
+\c@mincompwidth=\count323
+Package biblatex Info: Trying to load biblatex default data model...
+Package biblatex Info: ... file 'blx-dm.def' found.
+
+("C:\Users\canderson\AppData\Local\Programs\MiKTeX 2.9\tex/latex/biblatex\blx-d
+m.def"
+File: blx-dm.def 2019/12/01 v3.14 biblatex localization (PK/MW)
+)
+Package biblatex Info: Trying to load biblatex custom data model...
+Package biblatex Info: ... file 'biblatex-dm.cfg' not found.
+\c@afterword=\count324
+\c@savedafterword=\count325
+\c@annotator=\count326
+\c@savedannotator=\count327
+\c@author=\count328
+\c@savedauthor=\count329
+\c@bookauthor=\count330
+\c@savedbookauthor=\count331
+\c@commentator=\count332
+\c@savedcommentator=\count333
+\c@editor=\count334
+\c@savededitor=\count335
+\c@editora=\count336
+\c@savededitora=\count337
+\c@editorb=\count338
+\c@savededitorb=\count339
+\c@editorc=\count340
+\c@savededitorc=\count341
+\c@foreword=\count342
+\c@savedforeword=\count343
+\c@holder=\count344
+\c@savedholder=\count345
+\c@introduction=\count346
+\c@savedintroduction=\count347
+\c@namea=\count348
+\c@savednamea=\count349
+\c@nameb=\count350
+\c@savednameb=\count351
+\c@namec=\count352
+\c@savednamec=\count353
+\c@translator=\count354
+\c@savedtranslator=\count355
+\c@shortauthor=\count356
+\c@savedshortauthor=\count357
+\c@shorteditor=\count358
+\c@savedshorteditor=\count359
+\c@labelname=\count360
+\c@savedlabelname=\count361
+\c@institution=\count362
+\c@savedinstitution=\count363
+\c@lista=\count364
+\c@savedlista=\count365
+\c@listb=\count366
+\c@savedlistb=\count367
+\c@listc=\count368
+\c@savedlistc=\count369
+\c@listd=\count370
+\c@savedlistd=\count371
+\c@liste=\count372
+\c@savedliste=\count373
+\c@listf=\count374
+\c@savedlistf=\count375
+\c@location=\count376
+\c@savedlocation=\count377
+\c@organization=\count378
+\c@savedorganization=\count379
+\c@origlocation=\count380
+\c@savedoriglocation=\count381
+\c@origpublisher=\count382
+\c@savedorigpublisher=\count383
+\c@publisher=\count384
+\c@savedpublisher=\count385
+\c@language=\count386
+\c@savedlanguage=\count387
+\c@origlanguage=\count388
+\c@savedoriglanguage=\count389
+\c@pageref=\count390
+\c@savedpageref=\count391
+\shorthandwidth=\skip68
+\shortjournalwidth=\skip69
+\shortserieswidth=\skip70
+\shorttitlewidth=\skip71
+\shortauthorwidth=\skip72
+\shorteditorwidth=\skip73
+\locallabelnumberwidth=\skip74
+\locallabelalphawidth=\skip75
+\localshorthandwidth=\skip76
+\localshortjournalwidth=\skip77
+\localshortserieswidth=\skip78
+\localshorttitlewidth=\skip79
+\localshortauthorwidth=\skip80
+\localshorteditorwidth=\skip81
+Package biblatex Info: Trying to load enhanced support for Unicode engines...
+Package biblatex Info: ... file 'blx-unicode.def' found.
+
+("C:\Users\canderson\AppData\Local\Programs\MiKTeX 2.9\tex/latex/biblatex\blx-u
+nicode.def")
+Package biblatex Info: Trying to load compatibility code...
+Package biblatex Info: ... file 'blx-compat.def' found.
+
+("C:\Users\canderson\AppData\Local\Programs\MiKTeX 2.9\tex/latex/biblatex\blx-c
+ompat.def"
+File: blx-compat.def 2019/12/01 v3.14 biblatex compatibility (PK/MW)
+)
+Package biblatex Info: Trying to load generic definitions...
+Package biblatex Info: ... file 'biblatex.def' found.
+
+("C:\Users\canderson\AppData\Local\Programs\MiKTeX 2.9\tex/latex/biblatex\bibla
+tex.def"
+File: biblatex.def 2019/12/01 v3.14 biblatex compatibility (PK/MW)
+\c@textcitecount=\count392
+\c@textcitetotal=\count393
+\c@textcitemaxnames=\count394
+\c@biburlbigbreakpenalty=\count395
+\c@biburlbreakpenalty=\count396
+\c@biburlnumpenalty=\count397
+\c@biburlucpenalty=\count398
+\c@biburllcpenalty=\count399
+\biburlbigskip=\muskip18
+\biburlnumskip=\muskip19
+\biburlucskip=\muskip20
+\biburllcskip=\muskip21
+\c@smartand=\count400
+)
+Package biblatex Info: Trying to load bibliography style 'numeric'...
+Package biblatex Info: ... file 'numeric.bbx' found.
+
+("C:\Users\canderson\AppData\Local\Programs\MiKTeX 2.9\tex/latex/biblatex/bbx\n
+umeric.bbx"
+File: numeric.bbx 2019/12/01 v3.14 biblatex bibliography style (PK/MW)
+Package biblatex Info: Trying to load bibliography style 'standard'...
+Package biblatex Info: ... file 'standard.bbx' found.
+
+("C:\Users\canderson\AppData\Local\Programs\MiKTeX 2.9\tex/latex/biblatex/bbx\s
+tandard.bbx"
+File: standard.bbx 2019/12/01 v3.14 biblatex bibliography style (PK/MW)
+\c@bbx:relatedcount=\count401
+\c@bbx:relatedtotal=\count402
+))
+Package biblatex Info: Trying to load citation style 'numeric'...
+Package biblatex Info: ... file 'numeric.cbx' found.
+
+("C:\Users\canderson\AppData\Local\Programs\MiKTeX 2.9\tex/latex/biblatex/cbx\n
+umeric.cbx"
+File: numeric.cbx 2019/12/01 v3.14 biblatex citation style (PK/MW)
+Package biblatex Info: Redefining '\cite'.
+Package biblatex Info: Redefining '\parencite'.
+Package biblatex Info: Redefining '\footcite'.
+Package biblatex Info: Redefining '\footcitetext'.
+Package biblatex Info: Redefining '\smartcite'.
+Package biblatex Info: Redefining '\supercite'.
+Package biblatex Info: Redefining '\textcite'.
+Package biblatex Info: Redefining '\textcites'.
+Package biblatex Info: Redefining '\cites'.
+Package biblatex Info: Redefining '\parencites'.
+Package biblatex Info: Redefining '\smartcites'.
+)
+Package biblatex Info: Trying to load configuration file...
+Package biblatex Info: ... file 'biblatex.cfg' found.
+
+("C:\Users\canderson\AppData\Local\Programs\MiKTeX 2.9\tex/latex/biblatex\bibla
+tex.cfg"
+File: biblatex.cfg 
+))
+\@quotelevel=\count403
+\@quotereset=\count404
+
+("C:\Users\canderson\AppData\Local\Programs\MiKTeX 2.9\tex/latex/l3backend\l3ba
+ckend-xdvipdfmx.def"
+File: l3backend-xdvipdfmx.def 2020-03-12 L3 backend support: xdvipdfmx
+\g__graphics_track_int=\count405
+\l__pdf_internal_box=\box98
+\g__pdf_backend_object_int=\count406
+\g__pdf_backend_annotation_int=\count407
+) (Paper.aux)
 \openout1 = `Paper.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 4.
-LaTeX Font Info:    ... okay on input line 4.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 4.
-LaTeX Font Info:    ... okay on input line 4.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 4.
-LaTeX Font Info:    ... okay on input line 4.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 4.
-LaTeX Font Info:    ... okay on input line 4.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 4.
-LaTeX Font Info:    ... okay on input line 4.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 4.
-LaTeX Font Info:    ... okay on input line 4.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 4.
-LaTeX Font Info:    ... okay on input line 4.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 5.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 5.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 5.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 45.
+LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 4
+5.
 
+("C:\Users\canderson\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\ts1cmr.fd
+"
+File: ts1cmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
+)
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
 
-LaTeX Warning: No \author given.
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: letterpaper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(49.79231pt, 514.71037pt, 49.79231pt)
+* v-part:(T,H,B)=(49.79231pt, 695.38536pt, 49.79231pt)
+* \paperwidth=614.295pt
+* \paperheight=794.96999pt
+* \textwidth=514.71037pt
+* \textheight=695.38536pt
+* \oddsidemargin=-22.47768pt
+* \evensidemargin=-22.47768pt
+* \topmargin=-59.47768pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=10.0pt
+* \footskip=30.0pt
+* \marginparwidth=65.0pt
+* \marginparsep=11.0pt
+* \columnsep=10.0pt
+* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-[1
+ABD: EveryShipout initializing macros
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
+Package biblatex Info: Trying to load language 'english'...
+Package biblatex Info: ... file 'english.lbx' found.
 
-{C:/Users/canderson/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] ("c:/Users\canderson\OneDrive - BYU\Documents\Class Things\Algorithm\Project_6\Paper.aux") ) 
+("C:\Users\canderson\AppData\Local\Programs\MiKTeX 2.9\tex/latex/biblatex/lbx\e
+nglish.lbx"
+File: english.lbx 2019/12/01 v3.14 biblatex localization (PK/MW)
+)
+Package biblatex Info: XeTeX detected.
+(biblatex)             Assuming input encoding 'utf8'.
+Package biblatex Info: Automatic encoding selection.
+(biblatex)             Assuming data encoding 'utf8'.
+\openout4 = `Paper.bcf'.
+
+Package biblatex Info: Trying to load bibliographic data...
+Package biblatex Info: ... file 'Paper.bbl' found.
+ (Paper.bbl)
+Package biblatex Info: Reference section=0 on input line 45.
+Package biblatex Info: Reference segment=0 on input line 45.
+ [1
+
+]
+File: ./sVal100/Annealing_100Pts_500it.png Graphic file (type bmp)
+<./sVal100/Annealing_100Pts_500it.png>
+ [2]
+File: sVal100/Annealing_15Pts_50it.png Graphic file (type bmp)
+<sVal100/Annealing_15Pts_50it.png>
+File: sVal100/Annealing_15Pts_100it.png Graphic file (type bmp)
+<sVal100/Annealing_15Pts_100it.png>
+File: sVal100/Annealing_15Pts_250it.png Graphic file (type bmp)
+<sVal100/Annealing_15Pts_250it.png>
+File: sVal100/Annealing_15Pts_500it.png Graphic file (type bmp)
+<sVal100/Annealing_15Pts_500it.png>
+File: sVal100/Annealing_15Pts_1000it.png Graphic file (type bmp)
+<sVal100/Annealing_15Pts_1000it.png>
+File: sVal100/Annealing_30Pts_50it.png Graphic file (type bmp)
+<sVal100/Annealing_30Pts_50it.png>
+File: sVal100/Annealing_30Pts_100it.png Graphic file (type bmp)
+<sVal100/Annealing_30Pts_100it.png>
+File: sVal100/Annealing_30Pts_250it.png Graphic file (type bmp)
+<sVal100/Annealing_30Pts_250it.png>
+File: sVal100/Annealing_30Pts_500it.png Graphic file (type bmp)
+<sVal100/Annealing_30Pts_500it.png>
+File: sVal100/Annealing_30Pts_1000it.png Graphic file (type bmp)
+<sVal100/Annealing_30Pts_1000it.png>
+File: sVal100/Annealing_60Pts_50it.png Graphic file (type bmp)
+<sVal100/Annealing_60Pts_50it.png>
+File: sVal100/Annealing_60Pts_100it.png Graphic file (type bmp)
+<sVal100/Annealing_60Pts_100it.png>
+File: sVal100/Annealing_60Pts_250it.png Graphic file (type bmp)
+<sVal100/Annealing_60Pts_250it.png>
+File: sVal100/Annealing_60Pts_500it.png Graphic file (type bmp)
+<sVal100/Annealing_60Pts_500it.png>
+File: sVal100/Annealing_60Pts_1000it.png Graphic file (type bmp)
+<sVal100/Annealing_60Pts_1000it.png>
+File: sVal100/Annealing_100Pts_50it.png Graphic file (type bmp)
+<sVal100/Annealing_100Pts_50it.png>
+File: sVal100/Annealing_100Pts_100it.png Graphic file (type bmp)
+<sVal100/Annealing_100Pts_100it.png>
+File: sVal100/Annealing_100Pts_250it.png Graphic file (type bmp)
+<sVal100/Annealing_100Pts_250it.png>
+File: sVal100/Annealing_100Pts_500it.png Graphic file (type bmp)
+<sVal100/Annealing_100Pts_500it.png>
+File: sVal100/Annealing_100Pts_1000it.png Graphic file (type bmp)
+<sVal100/Annealing_100Pts_1000it.png>
+File: sVal100/Annealing_200Pts_50it.png Graphic file (type bmp)
+<sVal100/Annealing_200Pts_50it.png>
+File: sVal100/Annealing_200Pts_100it.png Graphic file (type bmp)
+<sVal100/Annealing_200Pts_100it.png>
+File: sVal100/Annealing_200Pts_250it.png Graphic file (type bmp)
+<sVal100/Annealing_200Pts_250it.png>
+File: sVal100/Annealing_200Pts_500it.png Graphic file (type bmp)
+<sVal100/Annealing_200Pts_500it.png>
+File: sVal100/Annealing_200Pts_1000it.png Graphic file (type bmp)
+<sVal100/Annealing_200Pts_1000it.png>
+ [3] [4]
+Overfull \hbox (15.62114pt too wide) in paragraph at lines 242--242
+[]\TU/lmr/m/n/10 Todd W. Schneider. \TU/lmr/m/it/10 The Traveling Salesman with
+ Simulated Annealing, R, and Shiny\TU/lmr/m/n/10 . \TU/lmr/m/sc/10 url\TU/lmr/m
+/n/10 : $[][][][][] [] [] [] [][][][][][][][][][][][][][] []
+ []
+
+[5] (Paper.aux)
+Package logreq Info: Writing requests to 'Paper.run.xml'.
+\openout1 = `Paper.run.xml'.
+
+ ) 
 Here is how much of TeX's memory you used:
- 384 strings out of 480931
- 7266 string characters out of 2897920
- 239192 words of memory out of 3000000
- 16327 multiletter control sequences out of 15000+200000
- 535373 words of font info for 34 fonts, out of 3000000 for 9000
- 1141 hyphenation exceptions out of 8191
- 25i,6n,19p,220b,193s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Users/canderson/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/canderson/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/canderson/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb>
-Output written on "c:/Users\canderson\OneDrive - BYU\Documents\Class Things\Algorithm\Project_6\Paper.pdf" (1 page, 26610 bytes).
-PDF statistics:
- 18 PDF objects out of 1000 (max. 8388607)
- 0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 12477 strings out of 414219
+ 232253 string characters out of 2897503
+ 902351 words of memory out of 3000000
+ 29812 multiletter control sequences out of 15000+200000
+ 536338 words of font info for 55 fonts, out of 3000000 for 9000
+ 1348 hyphenation exceptions out of 8191
+ 43i,15n,48p,901b,4607s stack positions out of 5000i,500n,10000p,200000b,50000s
 
+Output written on Paper.pdf (5 pages).
