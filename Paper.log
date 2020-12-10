@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (MiKTeX 2.9.7380 64-bit) (preloaded format=xelatex 2020.9.4)  10 DEC 2020 11:59
+This is XeTeX, Version 3.14159265-2.6-0.999992 (MiKTeX 2.9.7380 64-bit) (preloaded format=xelatex 2020.9.4)  10 DEC 2020 13:42
 entering extended mode
 **"c:/Users/canderson/OneDrive - BYU/Documents/Class Things/Algorithm/Project_6
 /Paper.tex"
@@ -788,25 +788,38 @@ File: sVal100/Annealing_200Pts_500it.png Graphic file (type bmp)
 <sVal100/Annealing_200Pts_500it.png>
 File: sVal100/Annealing_200Pts_1000it.png Graphic file (type bmp)
 <sVal100/Annealing_200Pts_1000it.png>
- [3] [4]
-Overfull \hbox (15.62114pt too wide) in paragraph at lines 242--242
+ [3] [4] [5]
+File: sVal100/15_Greedy.png Graphic file (type bmp)
+<sVal100/15_Greedy.png>
+File: sVal100/15_Fancy.png Graphic file (type bmp)
+<sVal100/15_Fancy.png>
+File: sVal100/30_Greedy.png Graphic file (type bmp)
+<sVal100/30_Greedy.png>
+File: sVal100/30_Fancy.png Graphic file (type bmp)
+<sVal100/30_Fancy.png>
+File: sVal100/60_Greedy.png Graphic file (type bmp)
+<sVal100/60_Greedy.png>
+File: sVal100/60_Fancy.png Graphic file (type bmp)
+<sVal100/60_Fancy.png>
+ [6] [7]
+Overfull \hbox (15.62114pt too wide) in paragraph at lines 284--284
 []\TU/lmr/m/n/10 Todd W. Schneider. \TU/lmr/m/it/10 The Traveling Salesman with
  Simulated Annealing, R, and Shiny\TU/lmr/m/n/10 . \TU/lmr/m/sc/10 url\TU/lmr/m
 /n/10 : $[][][][][] [] [] [] [][][][][][][][][][][][][][] []
  []
 
-[5] (Paper.aux)
+[8] (Paper.aux)
 Package logreq Info: Writing requests to 'Paper.run.xml'.
 \openout1 = `Paper.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 12477 strings out of 414219
- 232253 string characters out of 2897503
- 902351 words of memory out of 3000000
- 29812 multiletter control sequences out of 15000+200000
+ 12575 strings out of 414219
+ 234338 string characters out of 2897503
+ 913367 words of memory out of 3000000
+ 29902 multiletter control sequences out of 15000+200000
  536338 words of font info for 55 fonts, out of 3000000 for 9000
  1348 hyphenation exceptions out of 8191
- 43i,15n,48p,901b,4607s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 43i,15n,48p,1055b,4605s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on Paper.pdf (5 pages).
+Output written on Paper.pdf (8 pages).

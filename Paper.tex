@@ -52,7 +52,7 @@
     \textbf{Abstract}
 \end{center}
 
-The Traveling Salesperson Problem (TSP) is a highly studied and well-known problem in computational complexity theory and computer science.  It asks the question ``What is the shortest path through a group of cities where each city will be visited once before returning to the original city?'' Although it is an NP-hard problem, many algorithms and solution patterns have been created to solve the TSP.  This report describes two of these algorithms, a greedy algorithm and simulated annealing, and analyzes their effectiveness in finding an optimal and computationally efficient solution.  Through implementation and testing of the algorithms against a variety of problem sizes, it was discovered that \dots
+The Traveling Salesperson Problem (TSP) is a highly studied and well-known problem in computational complexity theory and computer science.  It asks the question “what is the shortest path through a group of cities where each city will be visited once before returning to the original city?” Although it is an NP-hard problem, many algorithms and solution patterns have been created to solve the TSP.  This report describes two of these algorithms, a greedy algorithm and simulated annealing, and analyzes their effectiveness in finding an optimal and computationally efficient solution.  Through implementation and testing of the algorithms against a variety of problem sizes, it was discovered that a simulated annealing approach can reduce the optimal path found by a greedy implementation by 10-13\%.  This path optimization comes with runtime cost, however, as the randomness of neighbor-finding in our simulated annealing algorithm makes it costly.  
 
 \noindent\makebox[\linewidth]{\rule{\textwidth}{0.4pt}}
 
@@ -85,7 +85,7 @@ The Traveling Salesperson Problem (TSP) is a highly studied and well-known probl
 
         This makes more sense when looked at in the context of annealing. Annealing is a heat treatment applied to metal in order to reduce hardness and increase flexibility. Flaws in the metal make it rigid, but when you heat metal up these flaws can shift and move through the metal. As it cools these flaws are locked in place. The principle that carries over to simulated annealing is that the flaws can move freely at high temperatures, but as the metal cools it becomes increasingly hard for them to move.
         
-        The pseudo-code for a generic simulated annealing algorithm is as follows this pseudo-code comes from wikipedia \cite{wikiAnn}:
+        The pseudo-code for a generic simulated annealing algorithm is as follows (\,this pseudo-code comes from wikipedia \cite{wikiAnn})\,:
 
         \begin{Figure}
             \captionof{figure}{Simulated Annealing Pseudocode}\label{anneal}
@@ -107,7 +107,7 @@ The Traveling Salesperson Problem (TSP) is a highly studied and well-known probl
 
         \end{Figure}
 
-        The procedure begins with selecting an initial solution $s_0$ and storing it as $s$. Then a temperature $T$ is found. The value of $T$ starts high and reaches 1 as $k \rightarrow k_{max}$. Then a random ``neighbor'' of $s$ is selected. The cost of $s_n$ is compared to the cost of $s$. If $s_n$ is cheaper, then it replaces $s$. However, if it is not, then the cost of each solution, as well as the temperature, are passed into a probability function \code{P()}. When $T$ is large, there is a high chance that \code{P} will return a number that is larger than \code{random(0,1)}. This means that at high temperatures (small values of $k$) the algorithm will likely select solutions that are more expensive than the previous one. This allows the algorithm to ``jump'' out of local minima.
+        The procedure begins with selecting an initial solution $s_0$ and storing it as $s$. Then a temperature $T$ is found. The value of $T$ starts high and reaches 1 as $k \rightarrow k_{max}$. Then a random ``neighbor'' of $s$ is selected, this is $s_n$. The cost of $s_n$ is compared to the cost of $s$. If $s_n$ is cheaper, then it replaces $s$. However, if it is not, then the cost of each solution, as well as the temperature, are passed into a probability function \code{P()}. When $T$ is large, there is a high chance that \code{P} will return a number that is larger than \code{random(0,1)}. This means that at high temperatures (small values of $k$) the algorithm will likely select solutions that are more expensive than the previous one. This allows the algorithm to ``jump'' out of local minima.
 
         \begin{center}
             \begin{minipage}{0.9\columnwidth}
@@ -118,7 +118,13 @@ The Traveling Salesperson Problem (TSP) is a highly studied and well-known probl
         
         Figure \ref{exam} shows an example of the algorithm converging to a solution. Early in the algorithm, the cost of the selected solution often increases, but as the temperature decreases the algorithm selects more expensive solutions less and less. Eventually $T$ reaches 1 and the algorithm returns the selected solution.
 
-        When implementing a simulated annealing algorithm there are a few design questions that have a large impact on the algorithm's effectiveness. First, you need to figure out what defines a given solution's ``neighborhood''. The ``neighborhood'' consists of other solutions that are similar to the current solution. Once the neighborhood has been defined the following items need to be developed:
+        When implementing a simulated annealing algorithm there are a few design questions that have a large impact on the algorithm's effectiveness. First, you need to figure out what defines a given solution's ``neighborhood''. The ``neighborhood'' consists of other solutions that are similar to the current solution. 
+        
+        Research indicated that a common approach to finding a neighbor for the TSP just involves randomly selecting a continuous group of cities and reconnecting them randomly \cite{tspWeb}. This is a very effective method for fully connected graphs, but our graph has missing edges, so placing the cities in a random order at large problem sizes very rarely yielded a valid path. 
+        
+        We overcame this issue by using our greedy algorithm to connect the cities that we pulled out. We took the first city removed and set the shortest path out of it to infinity. If we didn't do that we would end up with the exact same order as before. If removing that edge made the problem unsolvable, we just tried again with the second city removed, and so on.
+        
+        Once the neighborhood has been defined the following items also need to be developed:
 
         \begin{itemize}
             \item {Annealing schedule}
@@ -151,7 +157,7 @@ The Traveling Salesperson Problem (TSP) is a highly studied and well-known probl
             T_{max} = 5\cdot k_{max}
         \end{equation}
 
-        The probability function refers to \code{P()} on line 7 of Figure ref{anneal}. This function relates the difference in cost between $s$ and $s_n$ with the current temperature to randomly determine if the algorithm will move to $s_n$ or not. This has a similar impact on the algorithm as the annealing schedule. If it is easy to move to neighbors then it is easier to move towards the optimal solution. But if it is too easy then the algorithm can move past the optimal solution and settle on a local minima as it cools. We decided on the following probability function (\,again from Todd Schnieder's website \cite{tspWeb})\,:
+        The probability function refers to \code{P()} on line 7 of Figure \ref{anneal}. This function relates the difference in cost between $s$ and $s_n$ with the current temperature to randomly determine if the algorithm will move to $s_n$ or not. This has a similar impact on the algorithm as the annealing schedule. If it is easy to move to neighbors then it is easier to move towards the optimal solution. But if it is too easy then the algorithm can move past the optimal solution and settle on a local minima as it cools. We decided on the following probability function (\,again from Todd Schnieder's website \cite{tspWeb})\,:
 
         \begin{equation}
             \exp{\Big(\frac{-(s_n - s)}{T}\Big)} \ge \text{random}(0,1)
@@ -164,7 +170,7 @@ The Traveling Salesperson Problem (TSP) is a highly studied and well-known probl
         
         After this, the algorithm compares the costs between the initial path and the cost of the newly generated neighbor. If the new path is shorter, it is chosen to continue to the next iteration. If not, it may randomly be chosen in the simulated annealing process. All of this comparison costs \bigO{n}. 
         
-        This process of generating a new neighbor and comparing the two path costs is repeated $n * p$, where $p$ is a number chosen to increase the iterations. (does this make sense?) Simplified, the process is repeated \bigO{n} times, which gives us a total time complexity of \bigO{n^3}.
+        This process of generating a new neighbor and comparing the two path costs is repeated $n * p$, where $p$ is the number of iterations per city. Ultimately, we decided to make $p$ a constant, so the process is repeated \bigO{n} times. This gives us a total time complexity of \bigO{n^3}.
     
         \subsubsection{Space}
 
@@ -173,11 +179,9 @@ The Traveling Salesperson Problem (TSP) is a highly studied and well-known probl
         \section{Results and Analysis}\label{results}
         \subsection{Empirical Results}
 
-        The first results that we have are related to the number of iterations in a given solution. We were unsure how many iterations to do, so we ran our algorithm at various iteration counts. The results of our experimetns can be found in Table \ref{iterGraph}. 
+        The first results that we have are related to the number of iterations in a given solution. We were unsure how many iterations to do, so we ran our algorithm at various iteration counts. The results of our experiments can be found in Table \ref{iterGraph}. It is worth noting that the number of iterations referenced on the table is multiplied by the problem size (\,number of cities)\, to get the actual number of iterations for each run.
         
     \end{multicols}
-
-    
 
     \begin{minipage}{0.8\paperwidth}
         \captionof{table}{Tour Distance Over Time at Various Iteration Counts}\label{iterGraph}
@@ -223,19 +227,57 @@ The Traveling Salesperson Problem (TSP) is a highly studied and well-known probl
             \centered{\includegraphics[width=0.126\textwidth]{sVal100/Annealing_200Pts_1000it.png}} \\
         \end{tabular}
     \end{minipage}
+    
+    
+        In analyzing the final solution value for each of the runs in Figure \ref{iterGraph} we found that the run with the greatest number of iterations didn't always yield the best solution. Because of this, we decided to favor runtime and decrease the number of iterations to 100 per city. 
 
+        After determining that increasing the number of iterations didn't guarantee a better solution we began to look at the starting temperature (\,$T_{max}$)\,. However, we ran out of time to do a thorough analysis of this. A future project could be doing thorough testing of the impact the number of iterations and $T_{max}$ have on the final solution. A correlation could even be developed to dynamically choose $T_{max}$ and the number of iterations based on problem size.
 
-        % \begin{minipage}{0.8\paperwidth}
-        %     \begin{center}
-        %     \captionof{table}{Experimental Data}
-        %     \scalebox{0.65}{
-        %         \csvreader[
-        %         respect all,
-        %         autotabular
-        %     ]{data.csv}{}{\csvlinetotablerow}
-        %     }
-        %     \end{center}
-        % \end{minipage}
+        Once we decided on doing 100 iterations per city we were able to do our time trials of our algorithm. The results of these experiments are found in Table \ref{expRes}
+    
+
+        \begin{minipage}{0.8\paperwidth}
+            \begin{center}
+            \captionof{table}{Experimental Data}\label{expRes}
+            \scalebox{0.65}{
+                \csvreader[
+                respect all,
+                autotabular
+            ]{data.csv}{}{\csvlinetotablerow}
+            }
+            \end{center}
+        \end{minipage}
+
+    \begin{multicols}{2}
+        The branch and bound algorithm consistently out performed our annealing algorithm in terms of cost of tour. However, the branch and bound algorithm at 100 cities and above always timed out at 10 minutes, while our annealing algorithm only timed out when doing 200 cities with 500 or more iterations per city. For example, at 100 cities the branch and bound algorithm timed out while our annealing algorithm only took 20 seconds. The final entry in our table was done out of curiosity. Doing 200,000 iterations over 200 cities took 24 minutes and only resulted in an improvement to the cost of about 1\%.
+
+        In running timers in our code we saw that it was our neighbor finding algorithm that took almost all of the runtime. As stated previously, we just used a greedy algorithm to find a neighbor by swapping the order of the cities. This is a case where we have an efficient algorithm because we push the complexity into a different problem. That is another source of future work; research into fast path-finding algorithms. It should be interesting because we don't care about the cost of the path, we just want to find a valid path fast.
+
+        Looking at how our algorithm performed at different iterations per city we see that our earlier assumption that increasing the iterations did not guarantee a better solution was correct. Obviously the iterations per city is only one factor and we would need to do additional testing to determine the best combination of parameters that would optimize our algorithm.
+    \end{multicols}
+
+\pagebreak
+\subsection{Screenshots}
+
+    \begin{minipage}{0.8\paperwidth}
+        \captionof{table}{Typical Results}\label{screen}
+        \begin{tabular}{cc}
+            \toprule
+            Greedy & Annealing \\
+            \midrule
+            \centered{\includegraphics[width=0.35\paperwidth]{sVal100/15_Greedy.png}} &
+            \centered{\includegraphics[width=0.35\paperwidth]{sVal100/15_Fancy.png}} \\
+            \centered{\includegraphics[width=0.35\paperwidth]{sVal100/30_Greedy.png}} &
+            \centered{\includegraphics[width=0.35\paperwidth]{sVal100/30_Fancy.png}} \\
+            \centered{\includegraphics[width=0.35\paperwidth]{sVal100/60_Greedy.png}} &
+            \centered{\includegraphics[width=0.35\paperwidth]{sVal100/60_Fancy.png}} \\
+        \end{tabular}
+    \end{minipage}
+\pagebreak
+
+\section{Conclusion}
+
+In conclusion the simulated annealing algorithm proved to carry an increased effectiveness in finding the optimal path of TSP problems over greedy approaches.  The findings listed above showed an 10-13\% reduction in the total cost of a TSP path over a greedy algorithm, and although a greedy approach is favorable in runtime, additional research could greatly increase a simulated annealing’s path finding optimization.  The runtime analysis proved that the difficulty in finding an effective path through simulated annealing is due in part to the randomness inherent to the algorithm itself. Finding valid neighboring paths turns into a guessing game with smaller odds when more cities are involved, but this risk is necessary to escape local minima and expand our search.  This finding shows that a simulated annealing approach would be much more effective at navigating local minima to find a global minimum if our city graph were fully connected and complete.
 
 \pagebreak
 \printbibliography
