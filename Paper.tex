@@ -166,11 +166,11 @@ The Traveling Salesperson Problem (TSP) is a highly studied and well-known probl
         \subsection{Complexity Analysis}
         \subsubsection{Time}
 
-        The time complexity for our simulated annealing approach is \bigO{n^3}. The algorithm first generates a valid path by using the greedy approach described above, which was determined to cost \bigO{n^3}. This initialization is only run once. After this, the algorithm finds a neighbor to the initial path. This involves randomly picking two indices in the initial path, and greedily finding a new way between the two. This process is only repeated once; even if a valid path is not found, the algorithm simply continues and generates a new neighbor. This means that generating the neighbor only costs \bigO{n^2}, since we omit the step in the initial greedy approach of checking every starting node. 
+        The time complexity for our simulated annealing approach is \bigO{n^4}. The algorithm first generates a valid path by using the greedy approach described above, which was determined to cost \bigO{n^3}. This initialization is only run once. After this, the algorithm finds a neighbor to the initial path. This involves randomly picking two indices in the initial path, and greedily finding a new way between the two. This process is very similar to the greedy algorithm, so if it doesn’t find a path initially, it starts with a new city. This means that generating the neighbor also costs \bigO{n^3}, since we omit the step in the initial greedy approach of checking every starting node. 
         
         After this, the algorithm compares the costs between the initial path and the cost of the newly generated neighbor. If the new path is shorter, it is chosen to continue to the next iteration. If not, it may randomly be chosen in the simulated annealing process. All of this comparison costs \bigO{n}. 
         
-        This process of generating a new neighbor and comparing the two path costs is repeated $n * p$, where $p$ is the number of iterations per city. Ultimately, we decided to make $p$ a constant, so the process is repeated \bigO{n} times. This gives us a total time complexity of \bigO{n^3}.
+        This process of generating a new neighbor and comparing the two path costs is repeated $n * p$, where $p$ is the number of iterations per city. Ultimately, we decided to make $p$ a constant, so the process is repeated \bigO{n} times. This gives us a total time complexity of \bigO{n^4}.
     
         \subsubsection{Space}
 
